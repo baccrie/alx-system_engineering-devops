@@ -1,4 +1,4 @@
-The files in this directory  are scripts of my shell permission project on alx
+The files in this directory  are scripts of my shell permission project on alx 
 Use the commit messages to see what each file is used for.
 
 copyright © baccrie 2022
