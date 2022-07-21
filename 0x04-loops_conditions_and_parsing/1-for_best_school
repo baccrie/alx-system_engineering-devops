@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 # a bash script that displays best school 10 time
-for i in {1..10}; do echo "Best School"; done
+for i in {1..10};
+do 
+	echo "Best School";
+done
