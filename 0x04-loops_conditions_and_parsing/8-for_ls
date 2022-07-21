@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#work on my files nigga
+
+i=0
+for File in *;
+do
+	echo "$File" | cut -d'-' -f2
+done
+
