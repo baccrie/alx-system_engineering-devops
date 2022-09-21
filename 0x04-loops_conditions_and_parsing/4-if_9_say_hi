@@ -7,9 +7,10 @@ while [[ $var -le 10 ]]
 do
     if [[ $var -eq 9 ]]
     then
+	echo "$str"
         echo "Hi"
     else
-        echo $str
+        echo "$str"
     fi
     (( var++ ))
 done

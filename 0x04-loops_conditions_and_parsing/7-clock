@@ -5,11 +5,11 @@ var1=0
 var2=1
 while [[ $var1 -le 12 ]]
 do
-    echo "Hour: "$var1
+    echo "Hour: $var1"
     var2=1
     while [[ $var2 -lt 60 ]]
     do
-        echo $var2
+        echo "$var2"
         (( var2++ ))
     done
     (( var1++ ))

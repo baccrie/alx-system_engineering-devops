@@ -5,14 +5,14 @@ var=1
 str="Best School"
 while [[ $var -le 10 ]]
 do
-    if [[] $var -eq 4 ]]
+    if [[ $var -eq 4 ]]
     then
         echo "bad luck"
     elif [[ $var -eq 8 ]]
     then
         echo "good luck"
     else
-        echo $str
+        echo "$str"
     fi
     (( var++ ))
 done

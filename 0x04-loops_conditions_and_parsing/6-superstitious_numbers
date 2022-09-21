@@ -2,24 +2,23 @@
 #A bash script that prints Best School with conditions
 
 var=1
-str="Best School"
 while [[ $var -le 20 ]]
 do
     if [[ $var -eq 4 ]]
     then
-        echo $var
+        echo "$var"
         echo "bad luck from China"
     elif [[ $var -eq 9 ]]
     then
-        echo $var
+        echo "$var"
         echo "bad luck from Japan"
-    elif [ $var -eq 17 ]
+    elif [[ $var -eq 17 ]]
     then
-        echo $var
+        echo "$var"
         echo "bad luck from Italy"
         
     else
-        echo $var
+        echo "$var"
     fi
     (( var++ ))
 done

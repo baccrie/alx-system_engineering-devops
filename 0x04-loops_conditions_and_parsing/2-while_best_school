@@ -5,6 +5,6 @@ var=1
 str="Best School"
 while [[ $var -le 10 ]]
 do
-    echo $str
+    echo "$str"
     (( var++ ))
 done

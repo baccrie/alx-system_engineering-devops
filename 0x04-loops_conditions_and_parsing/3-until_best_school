@@ -5,6 +5,6 @@ var=1
 str="Best School"
 until [[ $var -gt 10 ]]
 do
-    echo $str
+    echo "$str"
     (( var++ ))
 done
