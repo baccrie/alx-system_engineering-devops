@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
-#loop with if statement
+#A bash script that prints Best School 10 with conditions
 
-i=0
-while [[ $i -lt 9 ]]
+var=1
+str="Best School"
+while [[ $var -le 10 ]]
 do
-	if [[ $i == 8 ]]
-	then
-		echo "Best School"
-		echo "Hi"
-	fi
-	echo "Best School"
-	(( i++ ))
+    if [[ $var -eq 9 ]]
+    then
+        echo "Hi"
+    else
+        echo $str
+    fi
+    (( var++ ))
 done

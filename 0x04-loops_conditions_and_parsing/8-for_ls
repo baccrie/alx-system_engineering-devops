@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Display the files on the current directory with only it's name
+#looping through a cut command grepped by list command in the pwd using - as delimeter
 
-list=$(ls)
-
-for element in ${list}; do echo "${element}" | cut -d "-" -f 2; done
+for i in `ls | cut -d- -f2`
+do
+    echo $i
+done

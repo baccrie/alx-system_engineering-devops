@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-#print best school 10 times with while loop
+#A bash script that prints Best School 10 Times
 
-i=0
-while [[ $i -lt 10 ]]
+var=1
+str="Best School"
+while [[ $var -le 10 ]]
 do
-	echo "Best School"
-	(( i++ ))
+    echo $str
+    (( var++ ))
 done

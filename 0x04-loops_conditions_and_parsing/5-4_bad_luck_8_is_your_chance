@@ -1,17 +1,18 @@
 #!/usr/bin/env bash
-#loop with if statement
+#Alx and Trouble be like 5 and 6, Dedicating this commit to My Journey in the Tech Field, devops na ur mate?
 
-i=0
-while [[ $i -lt 10 ]]
+var=1
+str="Best School"
+while [[ $var -le 10 ]]
 do
-	if [[ $i == 3 ]]
-	then
-		echo "bad luck"
-	elif [[ $i == 7 ]]
-	then
-		echo "good luck"
-	else
-		echo "Best School"
-	fi
-	(( i++ ))
+    if [[] $var -eq 4 ]]
+    then
+        echo "bad luck"
+    elif [[ $var -eq 8 ]]
+    then
+        echo "good luck"
+    else
+        echo $str
+    fi
+    (( var++ ))
 done

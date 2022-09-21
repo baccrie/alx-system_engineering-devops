@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
-#using untill loop to.perform magic
+#A Using Untill to loop instead of while or for loop
 
-i=0
-until [[ $i -eq 10 ]]
+var=1
+str="Best School"
+until [[ $var -gt 10 ]]
 do
-	echo "Best School"
-	(( i++ ))
+    echo $str
+    (( var++ ))
 done

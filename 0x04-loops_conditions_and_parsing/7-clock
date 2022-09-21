@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
-#while loop with case instead of if
+#Nesed loop to for a 12hrs clock
 
-i=0
-while [[ $i -lt 13 ]]
+var1=0
+var2=1
+while [[ $var1 -le 12 ]]
 do
-	echo "Hour: $i"
-	j=1
-	while [[ j -lt 60 ]]
-	do
-		echo $j
-		(( j++ ))
-	done
-	(( i++ ))
+    echo "Hour: "$var1
+    var2=1
+    while [[ $var2 -lt 60 ]]
+    do
+        echo $var2
+        (( var2++ ))
+    done
+    (( var1++ ))
 done
