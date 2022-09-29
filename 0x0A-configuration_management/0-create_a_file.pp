@@ -1,4 +1,4 @@
-#!/usr/bin/env pup
+#!/usr/bin/pup
 # A puppet script that Creates a file
 file { 'creates school file under school dir':
 	ensure => file,
