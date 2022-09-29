@@ -1,6 +1,6 @@
 #!/usr/bin/env pup
 #Installs a package
-package { 'Installs flask from pip3':
-    name => 'flask', 
+package { 'flask':
+    provider => 'pip3', 
     ensure => '2.1.0'
 }
