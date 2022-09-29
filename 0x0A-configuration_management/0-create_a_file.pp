@@ -1,6 +1,7 @@
 #!/usr/bin/env pup
-# Creates a file
+# A puppet script that Creates a file
 file { 'creates school file under school dir':
+	ensure => file,
 	path => '/tmp/school',
 	mode => '0744',
 	owner => 'www-data',
