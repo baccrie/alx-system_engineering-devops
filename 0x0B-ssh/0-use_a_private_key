@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# Connect to my alx server
-ssh -i ~/.ssh/school ubuntu@3.210.184.58
-
