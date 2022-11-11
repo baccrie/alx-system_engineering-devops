@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
-#A Using Untill to loop instead of while or for loop
-
-var=1
-str="Best School"
-until [[ $var -gt 10 ]]
+# This script is displaying "Best School" 10 times
+i=1
+until (( i == 11 ));
 do
-    echo "$str"
-    (( var++ ))
+	echo "Best School"
+	(( i++ ))
 done
