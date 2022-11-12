@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 #looping through a cut command grepped by list command in the pwd using - as delimeter
-ls > txt
-var=$(cut -d- -f2 txt)
-for i in $var
+for i in {1..5}
 do
-    echo "$i"
+	echo $(ls *.md >> new)
 done
