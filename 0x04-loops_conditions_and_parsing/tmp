@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-#looping through a cut command grepped by list command in the pwd using - as delimeter
-for i in {1..5}
-do
-	echo $(ls *.md >> new)
-done
