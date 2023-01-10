@@ -1,2 +1,3 @@
 #!/usr/bin/env bash
+# This scriptS ssh to a remote server using a named ptivate key school
 ssh -i ~/.ssh/school ubuntu@35.153.51.178
