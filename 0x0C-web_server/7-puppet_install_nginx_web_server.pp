@@ -1,24 +1,23 @@
-exec { 'update apt':
-  command => '/usr/bin/sudo apt update,
+# Install nginx with puppet
+package { 'nginx':
+  ensure   => '1.18.0',
+  provider => 'apt',
 }
 
-exec { 'install nginx':
-  command => '/usr/bin/sudo apt install nginx',
-  require => Exec['update apt'],
+file { 'Hello World':
+  path    => '/var/www/html/index.nginx-debian.html',
+  content => 'Hello World',
 }
 
-exec { 'restart nginx':
-  command => '/usr/bin/sudo systemctl restart nginx',
-  require => Exec['install nginx'],
+file_line { 'Hello World':
+  path  => '/etc/nginx/sites-available/default',
+  after => 'server_name _;',
+  line  => '\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;',
 }
 
-file_line { 'return Hello World':
-  path    => '/var/www/html/default',
-  content => 'Hello World!',
+exec { 'service':
+  command  => 'service nginx start',
+  provider => 'shell',
+  user     => 'root',
+  path     => '/usr/sbin/service',
 }
-
-file_line { '301 redirect page':
-  path => 'etc/nginx/sites-available/default',
-  line => '    server_name _;\n
-    rewrite ^/(redirect_me)$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;,
-}   
