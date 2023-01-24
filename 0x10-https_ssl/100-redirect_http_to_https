@@ -111,6 +111,7 @@ backend www-backend
         balance roundrobin
         server 9035-web-01 35.153.51.178:80 check
         server 9035-web-02 54.152.34.136:80 check
+	redirect scheme https code 301 if !{ ssl_fc }
 
 backend letsencrypt-backend
         server letsencrypt 127.0.0.1:54321
