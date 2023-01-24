@@ -37,21 +37,20 @@ defaults
         option forwardfor
         option http-server-close
 
-
 frontend www-http
-        bind *:80
+        bind 18.207.112.228:80
+        reqadd X-Forwarded-Proto:\ http
         default_backend www-backend
-        #reqadd X-Forwarded-Proto:\ http
 
 frontend www-https
-        bind *:443 ssl crt /etc/haproxy/certs/baccrie.tech.pem
-        #reqadd X-Forwarded-Proto:\ https
+        bind 18.207.112.228:443 ssl crt /etc/haproxy/certs/baccrie.tech.pem
+        reqadd X-Forwarded-Proto:\ https
         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
         use_backend letsencrypt-backend if letsencrypt-acl
         default_backend www-backend
 
 backend www-backend
-        balance roundrobin
+        redirect scheme https if !{ ssl_fc }
         server 9035-web-01 35.153.51.178:80 check
         server 9035-web-02 54.152.34.136:80 check
 
