@@ -4,9 +4,9 @@ Playing with a SOAP api sounds exquisite
 """
 
 
+import csv
 import requests
 from sys import argv
-import csv
 
 
 if __name__ == '__main__':
@@ -24,5 +24,5 @@ if __name__ == '__main__':
     with open(filename, 'w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_NONNUMERIC)
         for key in all_tasks_for_userid:
-            writer.writerow([(user_id),users["username"],(key["completed"]),key['title']])
-
+            writer.writerow([(user_id), users["username"],
+                             (key["completed"]), key['title']])
