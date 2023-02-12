@@ -1,34 +1,28 @@
 #!/usr/bin/python3
-""" Script that uses JSONPlaceholder API to get information about employee """
-import csv
+"""
+Playing with a SOAP api sounds exquisite
+"""
+
+
 import requests
-import sys
+from sys import argv
+import csv
 
 
-if __name__ == "__main__":
-    url = 'https://jsonplaceholder.typicode.com/'
+if __name__ == '__main__':
+    user_id = int(argv[1])
+    users = requests.get('https://jsonplaceholder.typicode.com/users/{}'
+                         .format(user_id)).json()
+    all_tasks = requests.get(
+            'https://jsonplaceholder.typicode.com/todos').json()
+    all_tasks_for_userid = [key for key in all_tasks
+                            if key["userId"] == user_id]
+    task_completed = [key for key in all_tasks_for_userid
+                      if key["completed"] is True]
+    username = users["username"]
+    filename = ('{}.csv'.format(user_id))
+    with open(filename, 'w', newline='') as file:
+        writer = csv.writer(file, quoting=csv.QUOTE_NONNUMERIC)
+        for key in all_tasks_for_userid:
+            writer.writerow([(user_id),users["username"],(key["completed"]),key['title']])
 
-    userid = sys.argv[1]
-    user = '{}users/{}'.format(url, userid)
-    res = requests.get(user)
-    json_o = res.json()
-    name = json_o.get('username')
-
-    todos = '{}todos?userId={}'.format(url, userid)
-    res = requests.get(todos)
-    tasks = res.json()
-    l_task = []
-    for task in tasks:
-        l_task.append([userid,
-                       name,
-                       task.get('completed'),
-                       task.get('title')])
-
-    filename = '{}.csv'.format(userid)
-    with open(filename, mode='w') as employee_file:
-        employee_writer = csv.writer(employee_file,
-                                     delimiter=',',
-                                     quotechar='"',
-                                     quoting=csv.QUOTE_ALL)
-        for task in l_task:
-            employee_writer.writerow(task)
