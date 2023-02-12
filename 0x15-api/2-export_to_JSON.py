@@ -28,6 +28,7 @@ if __name__ == '__main__':
         key['username'] = users['username']
         del key['title']
         del key['id']
+        del key['userId']
     res = {user_id: all_tasks_for_userid}
     filename = ('{}.json'.format(user_id))
     with open(filename, 'w') as json_file:
