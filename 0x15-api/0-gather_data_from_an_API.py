@@ -1,25 +1,23 @@
 #!/usr/bin/python3
-""" Script that uses JSONPlaceholder API to get information about employee """
+
 import requests
-import sys
+from sys import argv
 
+user_id = int(argv[1])
+users = requests.get('https://jsonplaceholder.typicode.com/users/{}'
+                     .format(user_id)).json()
+all_tasks = requests.get(
+        'https://jsonplaceholder.typicode.com/todos').json()
+all_tasks_for_userid = [key for key in all_tasks
+                        if key["userId"] == user_id]
+task_completed = [key for key in all_tasks_for_userid
+                  if key["completed"] is True]
 
-if __name__ == "__main__":
-    url = 'https://jsonplaceholder.typicode.com/'
+user = users["name"]
+all_tasks = len(all_tasks_for_userid)
+completed = len(task_completed)
 
-    user = '{}users/{}'.format(url, sys.argv[1])
-    res = requests.get(user)
-    json_o = res.json()
-    print("Employee {} is done with tasks".format(json_o.get('name')), end="")
-
-    todos = '{}todos?userId={}'.format(url, sys.argv[1])
-    res = requests.get(todos)
-    tasks = res.json()
-    l_task = []
-    for task in tasks:
-        if task.get('completed') is True:
-            l_task.append(task)
-
-    print("({}/{}):".format(len(l_task), len(tasks)))
-    for task in l_task:
-        print("\t {}".format(task.get("title")))
+print("Employee {} is done with tasks({}/{}):".
+      format(user, completed, all_tasks))
+for key in task_completed:
+    print('\t {}'.format(key['title']))
