@@ -1,7 +1,12 @@
 #!/usr/bin/python3
+"""
+Playing with a SOAP api sounds exquisite
+"""
+
 
 import requests
 from sys import argv
+
 
 user_id = int(argv[1])
 users = requests.get('https://jsonplaceholder.typicode.com/users/{}'
